@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+
+  postgres:
+    image: 'postgres:9.6.1'
+    environment:
+      POSTGRES_USER: 'api_auth_sample'
+      POSTGRES_PASSWORD: 'yourpassword'
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+
+
+  website:
+    depends_on:
+      - 'postgres'
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/api_auth_sample'
+    env_file:
+      - '.env'
+
+
+volumes:
+  postgres:
