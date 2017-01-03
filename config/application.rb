@@ -25,6 +25,8 @@ module ApiAuthSample
     logger.formatter = config.log_formatter
     config.log_tags  = [:subdomain, :uuid]
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
+    config.middleware.use Rack::Attack
+
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
