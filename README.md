@@ -1,24 +1,15 @@
-# README
+# Simple Dockerized Rails app in API mode
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Run: 
+```
+docker-compose up --build
+```
 
-* Ruby version
+Create databases:
 
-* System dependencies
+```
+docker exec -it apiauthsample_website_1 rails db:create 
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Visit http://localhost:3000
